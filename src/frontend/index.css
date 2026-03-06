@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Fonts ─────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque[opsz,wdth,wght].woff2") format("woff2");
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans[wght].woff2") format("woff2");
+  font-display: swap;
+  font-weight: 200 800;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Medical Blue + Green palette */
+    --background: 0.985 0.003 240;
+    --foreground: 0.12 0.02 250;
+    --card: 1 0 0;
+    --card-foreground: 0.12 0.02 250;
+    --popover: 1 0 0;
+    --popover-foreground: 0.12 0.02 250;
+
+    /* Primary: Medical Blue */
+    --primary: 0.48 0.2 260;
+    --primary-foreground: 0.99 0 0;
+
+    /* Secondary: Light Green */
+    --secondary: 0.92 0.05 155;
+    --secondary-foreground: 0.22 0.08 155;
+
+    /* Muted */
+    --muted: 0.95 0.01 240;
+    --muted-foreground: 0.5 0.02 250;
+
+    /* Accent: Fresh teal-green */
+    --accent: 0.88 0.1 175;
+    --accent-foreground: 0.18 0.1 175;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Borders & inputs */
+    --border: 0.9 0.015 240;
+    --input: 0.9 0.015 240;
+    --ring: 0.48 0.2 260;
+
+    /* Charts */
+    --chart-1: 0.48 0.2 260;
+    --chart-2: 0.55 0.18 155;
+    --chart-3: 0.65 0.14 200;
+    --chart-4: 0.75 0.12 85;
+    --chart-5: 0.7 0.16 30;
+
+    /* Sidebar */
+    --sidebar: 0.97 0.005 240;
+    --sidebar-foreground: 0.12 0.02 250;
+    --sidebar-primary: 0.48 0.2 260;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.88 0.1 175;
+    --sidebar-accent-foreground: 0.18 0.1 175;
+    --sidebar-border: 0.9 0.015 240;
+    --sidebar-ring: 0.48 0.2 260;
+
+    /* Custom medical tokens */
+    --medical-blue: 0.48 0.2 260;
+    --medical-blue-dark: 0.38 0.22 260;
+    --medical-blue-light: 0.78 0.12 240;
+    --medical-green: 0.62 0.18 155;
+    --medical-green-light: 0.88 0.1 155;
+    --hero-bg-start: 0.96 0.04 240;
+    --hero-bg-end: 0.98 0.02 200;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-medical-blue {
+    color: oklch(var(--medical-blue));
+  }
+  .text-medical-green {
+    color: oklch(var(--medical-green));
+  }
+  .bg-medical-blue {
+    background-color: oklch(var(--medical-blue));
+  }
+  .bg-medical-blue-dark {
+    background-color: oklch(var(--medical-blue-dark));
+  }
+  .bg-medical-green {
+    background-color: oklch(var(--medical-green));
+  }
+  .bg-medical-green-light {
+    background-color: oklch(var(--medical-green-light));
+  }
+  .border-medical-blue {
+    border-color: oklch(var(--medical-blue));
+  }
+  .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--hero-bg-start)) 0%,
+      oklch(var(--hero-bg-end)) 100%
+    );
+  }
+  .service-card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .service-card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px oklch(var(--medical-blue) / 0.15);
+  }
+}
